@@ -51,10 +51,6 @@ catalog:
     - allow: [Component, System, API, Resource, Location]
   locations:
     - type: file
-      target: ../../examples/template/template.yaml
+      target: ../../locations/all.yaml
       rules:
-        - allow: [Template]
-    - type: file
-      target: ../../locations/org.yaml
-      rules:
-        - allow: [User, Group]
+        - allow: [ Component, System, API, Resource, Location, Group, User, Template ]
