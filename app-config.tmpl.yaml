@@ -34,8 +34,15 @@ techdocs:
 auth:
   environment: development
   providers:
-    guest: {}
+    github:
+      development:
+        clientId: ${BACKSTAGE_GITHUB_CLIENT_ID}
+        clientSecret: ${BACKSTAGE_GITHUB_CLIENT_SECRET}
+        signIn:
+          resolvers:
+            - resolver: usernameMatchingUserEntityName
 scaffolder:
+
 catalog:
   import:
     entityFilename: catalog-info.yaml

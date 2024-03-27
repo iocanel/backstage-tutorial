@@ -1,20 +1,43 @@
 #!/bin/bash
 
-BACKSTAGE_TITLE="My Backstage"
-BACKSTAGE_ORG="iocanel"
-BACKSTAGE_GITHUB_USER="iocanel"
-BACKSTAGE_GITHUB_TOKEN=""
-BACKSTAGE_TEAM_NAME="team"
+# Fallback to the second argument if the first is empty
+setf() {
+  if [ -z "${!1}" ]; then
+    export $1="$2"
+  fi
+}
+
+setf "BACKSTAGE_TITLE" "My Backstage"
+setf "BACKSTAGE_ORG" "iocanel"
+setf "BACKSTAGE_GITHUB_USER" "iocanel"
+setf "BACKSTAGE_GITHUB_TOKEN" ""
+setf "BACKSTAGE_TEAM_NAME" "team"
+
+setf BACKSTAGE_GITHUB_CLIENT_ID ""
+setf BACKSTAGE_GITHUB_CLIENT_SECRET ""
 
 #
 # Read default values from password store (if available)
 # Use the convention of env/NAME where NAME the variable key
 #
 if [ -x "$(command -v pass)" ]; then
-  BACKSTAGE_GITHUB_TOKEN=`pass show env/GITHUB_TOKEN`
-  BACKSTAGE_GITHUB_CLIENT_ID=`pass show env/BACKSTAGE_GITHUB_CLIENT_ID`
-  BACKSTAGE_GITHUB_CLIENT_SECRET=`pass show env/BACKSTAGE_GITHUB_CLIENT_SECRET`
+  setf "BACKSTAGE_GITHUB_TOKEN" `pass show env/GITHUB_TOKEN`
+  setf BACKSTAGE_GITHUB_CLIENT_ID `pass show env/BACKSTAGE_GITHUB_CLIENT_ID`
+  setf BACKSTAGE_GITHUB_CLIENT_SECRET `pass show env/BACKSTAGE_GITHUB_CLIENT_SECRET`
 fi
+
+# Display usage
+function usage() {
+  echo "Usage: $0 [options]"
+  echo "Options:"
+  echo "  -t, --title <title>                 The title of the Backstage instance"
+  echo "  -o, --org <org>                     The organization name"
+  echo "  -u, --github-user <github-user>     The GitHub user"
+  echo "      --github-token <github-token>   The GitHub token"
+  echo "      --github-client-id <client-id>  The GitHub client id"
+  echo "      --github-client-secret <secret> The GitHub client secret"
+  exit 1
+}
 
 #
 # Optionally override the default values (above) with command line arguments:
@@ -52,8 +75,13 @@ while [[ $# -gt 0 ]]; do
       BACKSTAGE_GITHUB_CLIENT_SECRET=$2
       shift 2
       ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
     -*|--*)
       echo "Unknown option $1"
+      usage
       exit 1
       ;;
     *)
@@ -67,11 +95,15 @@ echo "BACKSTAGE_TITLE=$BACKSTAGE_TITLE"
 echo "BACKSTAGE_ORG=$BACKSTAGE_ORG"
 echo "BACKSTAGE_GITHUB_USER=$BACKSTAGE_GITHUB_USER"
 echo "BACKSTAGE_GITHUB_TOKEN=$BACKSTAGE_GITHUB_TOKEN"
+echo "BACKSTAGE_GITHUB_CLIENT_ID=$BACKSTAGE_GITHUB_CLIENT_ID"
+echo "BACKSTAGE_GITHUB_CLIENT_SECRET=$BACKSTAGE_GITHUB_CLIENT_SECRET"
 
 export BACKSTAGE_TITLE
 export BACKSTAGE_ORG
 export BACKSTAGE_GITHUB_USER
 export BACKSTAGE_GITHUB_TOKEN
+export BACKSTAGE_GITHUB_CLIENT_ID
+export BACKSTAGE_GITHUB_CLIENT_SECRET
 export BACKSTAGE_TEAM_NAME
 
 #  
