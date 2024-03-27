@@ -1,0 +1,81 @@
+#!/bin/bash
+
+BACKSTAGE_TITLE="My Backstage"
+BACKSTAGE_ORG="iocanel"
+BACKSTAGE_GITHUB_USER="iocanel"
+BACKSTAGE_GITHUB_TOKEN=""
+BACKSTAGE_TEAM_NAME="team"
+
+#
+# Read default values from password store (if available)
+# Use the convention of env/NAME where NAME the variable key
+#
+if [ -x "$(command -v pass)" ]; then
+  BACKSTAGE_GITHUB_TOKEN=`pass show env/GITHUB_TOKEN`
+  BACKSTAGE_GITHUB_CLIENT_ID=`pass show env/BACKSTAGE_GITHUB_CLIENT_ID`
+  BACKSTAGE_GITHUB_CLIENT_SECRET=`pass show env/BACKSTAGE_GITHUB_CLIENT_SECRET`
+fi
+
+#
+# Optionally override the default values (above) with command line arguments:
+# -t: Title
+# -o: Organization
+# --github-user: GitHub User
+# --github-token: GitHub Token
+# --github-client-id: GitHub Client ID
+# --github-client-secret: GitHub Client Secret
+#
+while [[ $# -gt 0 ]]; do
+  echo "Processing $1"
+  case $1 in
+    -t|--title)
+      BACKSTAGE_TITLE=$2
+      shift 2
+      ;;
+    -o|--org)
+      BACKSTAGE_ORG=$2
+      shift 2
+      ;;
+    -u|--github-user)
+      BACKSTAGE_GITHUB_USER=$2
+      shift 2
+      ;;
+    --github-token)
+      BACKSTAGE_GITHUB_TOKEN=$2
+      shift 2
+      ;;
+    --github-client-id)
+      BACKSTAGE_GITHUB_CLIENT_ID=$2
+      shift 2
+      ;;
+    -github-client-secret)
+      BACKSTAGE_GITHUB_CLIENT_SECRET=$2
+      shift 2
+      ;;
+    -*|--*)
+      echo "Unknown option $1"
+      exit 1
+      ;;
+    *)
+      POSITIONAL_ARGS+=("$1") # save positional arg
+      shift # past argument
+      ;;
+  esac
+done
+
+echo "BACKSTAGE_TITLE=$BACKSTAGE_TITLE"
+echo "BACKSTAGE_ORG=$BACKSTAGE_ORG"
+echo "BACKSTAGE_GITHUB_USER=$BACKSTAGE_GITHUB_USER"
+echo "BACKSTAGE_GITHUB_TOKEN=$BACKSTAGE_GITHUB_TOKEN"
+
+export BACKSTAGE_TITLE
+export BACKSTAGE_ORG
+export BACKSTAGE_GITHUB_USER
+export BACKSTAGE_GITHUB_TOKEN
+export BACKSTAGE_TEAM_NAME
+
+#  
+# Render the template as app-config.local.yaml that is ignored by git
+#
+envsubst < app-config.tmpl.yaml > app-config.local.yaml
+envsubst < locations/org.tmpl.yaml > locations/org.yaml
