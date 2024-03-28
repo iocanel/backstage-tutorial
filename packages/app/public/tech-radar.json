@@ -41,5 +41,298 @@
         }
     ],
     "entries": [
+        {
+            "id": "Java",
+            "title": "Java",
+            "description": "Java Programming Language",
+            "key": "java",
+            "url": "#",
+            "quadrant": "3",
+            "timeline": [
+                {
+                    "moved": 1,
+                    "ringId": "adopt",
+                    "date": "2005-03-01",
+                    "description": "Started using Java professionally"
+                },
+                {
+                    "moved": 0,
+                    "ringId": "trial",
+                    "date": "2001-01-01",
+                    "description": "Started experimenting with Java and NLP"
+                }
+            ]
+        },
+        {
+            "id": "quarkus",
+            "title": "Quarkus",
+            "description": "Supersonice subatomic Java",
+            "key": "quarkus",
+            "url": "#",
+            "quadrant": "3",
+            "timeline": [
+                {
+                    "moved": 0,
+                    "ringId": "adopt",
+                    "date": "2020-01-01",
+                    "description": "Adopted Quarkus for new projects"
+                },
+                {
+                    "moved": 1,
+                    "ringId": "trial",
+                    "date": "2019-03-01",
+                    "description": "Started experimenting with Quarkus"
+                }
+            ]
+        },
+        {
+            "id": "sb",
+            "title": "Spring Boot",
+            "description": "Spring Boot",
+            "key": "sb",
+            "url": "#",
+            "quadrant": "3",
+            "timeline": [
+                {
+                    "moved": 0,
+                    "ringId": "hold",
+                    "date": "2020-01-01",
+                    "description": "Stopped using Spring in favor of Quarkus"
+                },
+                {
+                    "moved": 1,
+                    "ringId": "trial",
+                    "date": "2014-04-01",
+                    "description": "Started experimenting with Spring Boot"
+                }
+            ]
+        },
+        {
+            "id": "osgi",
+            "title": "OSGi",
+            "description": "OSGi",
+            "key": "sb",
+            "url": "#",
+            "quadrant": "3",
+            "timeline": [
+                {
+                    "moved": 0,
+                    "ringId": "hold",
+                    "date": "2014-04-01",
+                    "description": "Stopped using OSGi in favor of Spring Boot"
+                },
+                {
+                    "moved": 1,
+                    "ringId": "trial",
+                    "date": "2010-01-01",
+                    "description": "Started experimenting with OSGi"
+                },
+                {
+                    "moved": 1,
+                    "ringId": "trial",
+                    "date": "2009-09-01",
+                    "description": "Started assesing OSGi"
+                }
+            ]
+        },
+        {
+            "id": "jboss",
+            "title": "JBoss",
+            "description": "JBoss Application Server",
+            "key": "jboss",
+            "url": "#",
+            "quadrant": "3",
+            "timeline": [
+                {
+                    "moved": 0,
+                    "ringId": "hold",
+                    "date": "2010-01-01",
+                    "description": "Stopped using JBoss in favor of OSGi"
+                },
+                {
+                    "moved": 1,
+                    "ringId": "adopt",
+                    "date": "2008-09-01",
+                    "description": "Started using JBoss professionally"
+                },
+                {
+                    "moved": 1,
+                    "ringId": "asses",
+                    "date": "2007-01-01",
+                    "description": "Started assesing JBoss"
+                }
+            ]
+        },
+        {
+            "id": "camel",
+            "title": "Apache Camel",
+            "description": "Apache Camel integration Framework",
+            "key": "camel",
+            "url": "#",
+            "quadrant": "2",
+            "timeline": [
+                {
+                    "moved": 1,
+                    "ringId": "adopt",
+                    "date": "2010-01-01",
+                    "description": "Started using Apache Camel professionally"
+                },
+                {
+                    "moved": 1,
+                    "ringId": "asses",
+                    "date": "2009-09-01",
+                    "description": "Started assesing Apache Camel"
+                }
+            ]
+        },
+        {
+            "id": "servicemix",
+            "title": "Apache ServiceMix",
+            "description": "Apache ServiceMix ESB",
+            "key": "servicemix",
+            "url": "#",
+            "quadrant": "2",
+            "timeline": [
+                {
+                    "moved": 1,
+                    "ringId": "hold",
+                    "date": "2011-01-01",
+                    "description": "Replaced Apache ServiceMix with Apache Karf and Camel"
+                },
+                {
+                    "moved": 1,
+                    "ringId": "adopt",
+                    "date": "2009-05-01",
+                    "description": "Started using Apache ServiceMix professionally"
+                },
+                {
+                    "moved": 1,
+                    "ringId": "asses",
+                    "date": "2009-03-01",
+                    "description": "Started assesing Apache ServiceMix"
+                }
+            ]
+        },
+        {
+            "id": "jbossesb",
+            "title": "JBoss ESB",
+            "description": "JBoss ESB",
+            "key": "jbossesb",
+            "url": "#",
+            "quadrant": "2",
+            "timeline": [
+                {
+                    "moved": 1,
+                    "ringId": "hold",
+                    "date": "2009-05-01",
+                    "description": "Put it on hold in favor of Apache ServiceMix"
+                },
+                {
+                    "moved": 1,
+                    "ringId": "asses",
+                    "date": "2009-03-01",
+                    "description": "Started assesing Apache ServiceMix"
+                }
+            ]
+        },
+        {
+            "id": "muleesb",
+            "title": "Mule ESB",
+            "description": "Mule ESB",
+            "key": "mulesb",
+            "url": "#",
+            "quadrant": "2",
+            "timeline": [
+                {
+                    "moved": 1,
+                    "ringId": "hold",
+                    "date": "2009-05-01",
+                    "description": "Put it on hold in favor of Apache ServiceMix"
+                },
+                {
+                    "moved": 1,
+                    "ringId": "asses",
+                    "date": "2009-03-01",
+                    "description": "Started assesing Mule ESB"
+                }
+            ]
+        },
+        {
+            "id": "kubernetes",
+            "title": "Kubernetes",
+            "description": "Kubernetes",
+            "key": "kubernetes",
+            "url": "#",
+            "quadrant": "4",
+            "timeline": [
+                {
+                    "moved": 1,
+                    "ringId": "adopt",
+                    "date": "2014-10-01",
+                    "description": "Adopted Kubernetes"
+                }
+            ]
+        },
+        {
+            "id": "openshift",
+            "title": "OpenShift",
+            "description": "OpenShift",
+            "key": "openshift",
+            "url": "#",
+            "quadrant": "4",
+            "timeline": [
+                {
+                    "moved": 1,
+                    "ringId": "adopt",
+                    "date": "2015-06-01",
+                    "description": "Adopted OpenShift"
+                },
+                {
+                    "moved": 1,
+                    "ringId": "trial",
+                    "date": "2013-01-01",
+                    "description": "Started experimenting with OpenShift and Fuse Fabric"
+                }
+            ]
+        },
+        {
+            "id": "cloudfoundry",
+            "title": "Cloud Foundry",
+            "description": "Cloud Foundry",
+            "key": "cloudfoundry",
+            "url": "#",
+            "quadrant": "4",
+            "timeline": [
+                {
+                    "moved": 1,
+                    "ringId": "hold",
+                    "date": "2013-01-01",
+                    "description": "Started experimenting with OpenShift"
+                },
+                {
+                    "moved": 1,
+                    "ringId": "trial",
+                    "date": "2011-09-01",
+                    "description": "Started experimenting with Cloud Foundry and Fuse Fabric"
+                }
+            ]
+        },
+
+        {
+            "id": "rust",
+            "title": "Rust",
+            "description": "Rust Programming Language",
+            "key": "rust",
+            "url": "#",
+            "quadrant": "1",
+            "timeline": [
+                {
+                    "moved": 1,
+                    "ringId": "trial",
+                    "date": "2022-01-01",
+                    "description": "Started experimenting with Rust"
+                }
+            ]
+        }
     ]
 }
