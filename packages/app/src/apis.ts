@@ -9,6 +9,9 @@ import {
   createApiFactory,
 } from '@backstage/core-plugin-api';
 
+import { techRadarApiRef } from '@backstage/plugin-tech-radar';
+import { LocalTechApiDataClient } from './lib/LocalTechApiDataClient';
+
 export const apis: AnyApiFactory[] = [
   createApiFactory({
     api: scmIntegrationsApiRef,
@@ -16,4 +19,5 @@ export const apis: AnyApiFactory[] = [
     factory: ({ configApi }) => ScmIntegrationsApi.fromConfig(configApi),
   }),
   ScmAuth.createDefaultApiFactory(),
+  createApiFactory(techRadarApiRef, new LocalTechApiDataClient()),
 ];
