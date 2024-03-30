@@ -40,6 +40,7 @@ import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
 
 import { githubAuthApiRef } from '@backstage/core-plugin-api';
+import { RevealPage } from '@internal/backstage-plugin-reveal';
 
 const githubProvider: SignInProviderConfig = {
   id: 'github-auth-provider',
@@ -110,6 +111,7 @@ const routes = (
     </Route>
     <Route path="/settings" element={<UserSettingsPage />} />
     <Route path="/catalog-graph" element={<CatalogGraphPage />} />
+    <Route path="/reveal" element={<RevealPage />} />
   </FlatRoutes>
 );
 

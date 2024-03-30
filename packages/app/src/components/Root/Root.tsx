@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 import ExtensionIcon from '@material-ui/icons/Extension';
 import MapIcon from '@material-ui/icons/MyLocation';
+import PresentToAllIcon from '@material-ui/icons/PresentToAll';
 import LibraryBooks from '@material-ui/icons/LibraryBooks';
 import CreateComponentIcon from '@material-ui/icons/AddCircleOutline';
 import LogoFull from './LogoFull';
@@ -73,6 +74,10 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
         <SidebarDivider />
         <SidebarScrollWrapper>
           <SidebarItem icon={MapIcon} to="tech-radar" text="Tech Radar" />
+        </SidebarScrollWrapper>
+        <SidebarDivider />
+        <SidebarScrollWrapper>
+          <SidebarItem icon={PresentToAllIcon} to="reveal" text="Presentations" />
         </SidebarScrollWrapper>
       </SidebarGroup>
       <SidebarSpace />
