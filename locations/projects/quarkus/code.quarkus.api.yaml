@@ -9,6 +9,9 @@ spec:
   owner: quarkus
   definition: |
      openapi: 3.0.3
+     servers:
+      - url: https://code.quarkus.io
+        description: Code Quarkus API
      info:
        title: Quarkus bootstrap API
        description: API that helps bootstrap a Quarkus application
