@@ -14,7 +14,7 @@ metadata:
     - url: 'https://code.quarkus.io'
       title: 'Project Creator'
 spec:
-  type: library
+  type: framework
   owner: quarkus
   lifecycle: experimental
   language: Java
