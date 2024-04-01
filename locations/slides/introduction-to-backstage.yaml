@@ -1,0 +1,31 @@
+apiVersion: iocanel.com/v1beta1
+kind: Presentation
+metadata:
+  name: introduction-to-backstage
+  description: An introduction to Backstage
+spec:
+  event: CNCF
+  date: 2021-06-01
+  presenter: Ioannis Canellos
+  title: Introduction to Backstage
+  content: |
+            <section>
+              <h2>Introduction to Backstage</h2>
+              <p>Ioannis Canellos</p>
+            </section>
+
+            <section>
+              <h2>Agenda</h2>
+              <p>Backstage</p>
+            </section>
+
+            <section>
+              <h2>Demo</h2>
+            </section>
+
+            <section>
+              <h2>Questions?</h2>
+            </section>
+
+
+

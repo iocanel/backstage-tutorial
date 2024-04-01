@@ -7,6 +7,9 @@
  */
 
 import { createBackend } from '@backstage/backend-defaults';
+import { catalogProcessingExtensionPoint } from '@backstage/plugin-catalog-node/alpha';
+import { createBackendModule } from '@backstage/backend-plugin-api';
+import { PresentationEntitiesProcessor } from '@iocanel/plugin-presentation-backend';
 
 const backend = createBackend();
 backend.add(import('@backstage/plugin-app-backend/alpha'));
@@ -27,6 +30,10 @@ backend.add(
   import('@backstage/plugin-catalog-backend-module-scaffolder-entity-model'),
 );
 
+// presentation plugin
+console.log('Adding presentation plugin');
+backend.add(import('@iocanel/plugin-presentation-backend'));
+
 // permission plugin
 backend.add(import('@backstage/plugin-permission-backend/alpha'));
 backend.add(
@@ -37,5 +44,23 @@ backend.add(
 backend.add(import('@backstage/plugin-search-backend/alpha'));
 backend.add(import('@backstage/plugin-search-backend-module-catalog/alpha'));
 backend.add(import('@backstage/plugin-search-backend-module-techdocs/alpha'));
+
+// presentation module
+const presentationModule = createBackendModule({
+  pluginId: 'catalog', // name of the plugin that the module is targeting
+  moduleId: 'presentation', // unique id of the module
+  register(env) {
+    env.registerInit({
+      deps: {
+        catalog: catalogProcessingExtensionPoint,
+      },
+      async init({ catalog }) {
+        catalog.addProcessor(new PresentationEntitiesProcessor());
+      },
+    });
+  },
+});
+
+backend.add(presentationModule);
 
 backend.start();

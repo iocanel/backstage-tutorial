@@ -1,6 +1,6 @@
-# reveal
+# Presentation
 
-Welcome to the reveal plugin!
+Welcome to the presentation plugin!
 
 _This plugin was created through the Backstage CLI_
 

@@ -53,4 +53,4 @@ catalog:
     - type: file
       target: ../../locations/all.yaml
       rules:
-        - allow: [ Component, System, API, Resource, Location, Group, User, Template ]
+        - allow: [ Component, System, API, Resource, Location, Group, User, Template, Presentation ]
