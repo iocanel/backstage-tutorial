@@ -4,6 +4,7 @@ import { catalogApiRef } from '@backstage/plugin-catalog-react'
 import { useApi } from '@backstage/core-plugin-api';
 
 import 'reveal.js/dist/reveal.css';
+import 'reveal.js/dist/theme/black.css';
 import { PresentationEntityV1beta1 } from '@iocanel/plugin-presentation-common';
 import { useParams } from 'react-router-dom';
 
