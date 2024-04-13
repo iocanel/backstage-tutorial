@@ -7,14 +7,25 @@ setf() {
   fi
 }
 
+
+
 setf "BACKSTAGE_TITLE" "My Backstage"
 setf "BACKSTAGE_ORG" "iocanel"
 setf "BACKSTAGE_GITHUB_USER" "iocanel"
 setf "BACKSTAGE_GITHUB_TOKEN" ""
 setf "BACKSTAGE_TEAM_NAME" "team"
 
+# GitHub OAuth App
 setf BACKSTAGE_GITHUB_CLIENT_ID ""
 setf BACKSTAGE_GITHUB_CLIENT_SECRET ""
+
+# Kubernetes
+setf KUBERNETES_CONFIG_PATH "$HOME/.kube/config"
+setf KUBERNETES_API_URL `kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}'`
+setf KUBERNETES_USER `kubectl config view --minify -o jsonpath='{.users[0].name}'`
+setf KUBERNETES_TOKEN `cat ~/.kube/config| grep "name: kube:admin/api-qshift-snowdrop-dev:644" -A 3 | grep token | awk '{print $2}'`
+setf KUBERNETES_CLUSTER_NAME `ocp-default`
+
 
 #
 # Read default values from password store (if available)
@@ -97,6 +108,9 @@ echo "BACKSTAGE_GITHUB_USER=$BACKSTAGE_GITHUB_USER"
 echo "BACKSTAGE_GITHUB_TOKEN=$BACKSTAGE_GITHUB_TOKEN"
 echo "BACKSTAGE_GITHUB_CLIENT_ID=$BACKSTAGE_GITHUB_CLIENT_ID"
 echo "BACKSTAGE_GITHUB_CLIENT_SECRET=$BACKSTAGE_GITHUB_CLIENT_SECRET"
+echo "KUBERNETES_API_URL=$KUBERNETES_API_URL"
+echo "KUBERNETES_USER=$KUBERNETES_USER"
+echo "KUBERNETES_TOKEN=$KUBERNETES_TOKEN"
 
 export BACKSTAGE_TITLE
 export BACKSTAGE_ORG
@@ -105,6 +119,8 @@ export BACKSTAGE_GITHUB_TOKEN
 export BACKSTAGE_GITHUB_CLIENT_ID
 export BACKSTAGE_GITHUB_CLIENT_SECRET
 export BACKSTAGE_TEAM_NAME
+export KUBERNETES_API_URL
+export KUBERNETES_USER
 
 #  
 # Render the template as app-config.local.yaml that is ignored by git

@@ -64,4 +64,7 @@ const presentationModule = createBackendModule({
 
 backend.add(presentationModule);
 
+// Kubernetes plugin
+backend.add(import('@backstage/plugin-kubernetes-backend/alpha'));
+
 backend.start();

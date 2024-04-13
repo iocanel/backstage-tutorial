@@ -54,3 +54,16 @@ catalog:
       target: ../../locations/all.yaml
       rules:
         - allow: [ Component, System, API, Resource, Location, Group, User, Template, Presentation ]
+
+kubernetes:
+  serviceLocatorMethod:
+    type: 'multiTenant'
+  clusterLocatorMethods:
+    - type: 'config'
+      clusters:
+        - url: ${KUBERNETES_API_URL}
+          name: ${KUBERNETES_CLUSTER_NAME}
+          authProvider: 'serviceAccount'
+          skipTLSVerify: true
+          skipMetricsLookup: true
+          serviceAccountToken: ${KUBERNETES_TOKEN}
