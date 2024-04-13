@@ -4,8 +4,8 @@ metadata:
   name: introduction-to-backstage
   description: An introduction to Backstage
 spec:
-  event: CNCF
-  date: 2021-06-01
+  event: codeweek
+  date: 2024-04-15
   presenter: Ioannis Canellos
   title: Introduction to Backstage
   content: |
