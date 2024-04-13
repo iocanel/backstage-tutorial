@@ -67,3 +67,10 @@ kubernetes:
           skipTLSVerify: true
           skipMetricsLookup: true
           serviceAccountToken: ${KUBERNETES_TOKEN}
+  customResources:
+    - group: 'tekton.dev'
+      apiVersion: 'v1'
+      plural: 'pipelineruns'
+    - group: 'tekton.dev'
+      apiVersion: 'v1'
+      plural: 'taskruns'
