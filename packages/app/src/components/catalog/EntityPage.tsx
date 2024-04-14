@@ -61,7 +61,11 @@ import { EntityKubernetesContent } from '@backstage/plugin-kubernetes';
 import {
     TektonCI, isTektonCIAvailable,
 } from '@janus-idp/backstage-plugin-tekton';
-
+import {
+    EntityArgoCDHistoryCard,
+  EntityArgoCDOverviewCard,
+  isArgocdAvailable
+} from '@roadiehq/backstage-plugin-argo-cd';
 
 const techdocsContent = (
   <EntityTechdocsContent>
@@ -144,6 +148,13 @@ const overviewContent = (
     <Grid item md={8} xs={12}>
       <EntityHasSubcomponentsCard variant="gridItem" />
     </Grid>
+    <EntitySwitch>
+      <EntitySwitch.Case if={e => Boolean(isArgocdAvailable(e))}>
+        <Grid item sm={4}>
+          <EntityArgoCDOverviewCard />
+        </Grid>
+      </EntitySwitch.Case>
+    </EntitySwitch>
   </Grid>
 );
 
@@ -153,8 +164,19 @@ const serviceEntityPage = (
       {overviewContent}
     </EntityLayout.Route>
 
-    <EntityLayout.Route path="/ci-cd" title="CI/CD">
+    <EntityLayout.Route path="/ci" title="CI">
       {cicdContent}
+    </EntityLayout.Route>
+
+    <EntityLayout.Route path="/cd" title="CD">
+      <Grid container spacing={3} alignItems="stretch">    
+        <Grid item md={12}>
+          <EntityArgoCDOverviewCard />
+        </Grid>
+        <Grid item md={12}>
+          <EntityArgoCDHistoryCard />
+        </Grid>
+      </Grid>
     </EntityLayout.Route>
 
     <EntityLayout.Route path="/kubernetes" title="Kubernetes">

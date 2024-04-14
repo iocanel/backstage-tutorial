@@ -74,3 +74,15 @@ kubernetes:
     - group: 'tekton.dev'
       apiVersion: 'v1'
       plural: 'taskruns'
+
+proxy:
+  endpoints:
+    '/argocd/api':
+      target: https://${ARGOCD_SERVER}/api/v1
+      changeOrigin: true
+      # only if your argocd api has self-signed cert
+      secure: false
+      # We need to define an environment variable ARGOCD_AUTH_TOKEN=argocd.token=<token> to be able to authenticate
+      headers:
+        Cookie:
+          $env: ARGOCD_AUTH_TOKEN

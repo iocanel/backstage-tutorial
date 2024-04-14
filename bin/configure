@@ -20,12 +20,17 @@ setf BACKSTAGE_GITHUB_CLIENT_ID ""
 setf BACKSTAGE_GITHUB_CLIENT_SECRET ""
 
 # Kubernetes
+setf KUBERNETES_CLUSTER_NAME "default"
 setf KUBERNETES_CONFIG_PATH "$HOME/.kube/config"
 setf KUBERNETES_API_URL `kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}'`
 setf KUBERNETES_USER `kubectl config view --minify -o jsonpath='{.users[0].name}'`
-setf KUBERNETES_TOKEN `cat ~/.kube/config| grep "name: kube:admin/api-qshift-snowdrop-dev:644" -A 3 | grep token | awk '{print $2}'`
-setf KUBERNETES_CLUSTER_NAME `ocp-default`
+setf KUBERNETES_TOKEN `cat $KUBERNETES_CONFIG_PATH | grep -A 2 "name: $KUBERNETES_USER" | grep token | awk '{print $2}'`
 
+# Argo CD
+setf ARGOCD_SERVER `pass show env/ARGOCD_SERVER`
+setf ARGOCD_USERNAME "admin"
+setf ARGOCD_PASSWORD `pass show env/ARGOCD_PASSWORD`
+setf ARGOCD_AUTH_TOKEN `pass show env/ARGOCD_AUTH_TOKEN`
 
 #
 # Read default values from password store (if available)
@@ -110,7 +115,6 @@ echo "BACKSTAGE_GITHUB_CLIENT_ID=$BACKSTAGE_GITHUB_CLIENT_ID"
 echo "BACKSTAGE_GITHUB_CLIENT_SECRET=$BACKSTAGE_GITHUB_CLIENT_SECRET"
 echo "KUBERNETES_API_URL=$KUBERNETES_API_URL"
 echo "KUBERNETES_USER=$KUBERNETES_USER"
-echo "KUBERNETES_TOKEN=$KUBERNETES_TOKEN"
 
 export BACKSTAGE_TITLE
 export BACKSTAGE_ORG
@@ -119,8 +123,16 @@ export BACKSTAGE_GITHUB_TOKEN
 export BACKSTAGE_GITHUB_CLIENT_ID
 export BACKSTAGE_GITHUB_CLIENT_SECRET
 export BACKSTAGE_TEAM_NAME
+
 export KUBERNETES_API_URL
 export KUBERNETES_USER
+
+export ARGOCD_SERVER
+export ARGOCD_USERNAME
+export ARGOCD_PASSWORD
+export ARGOCD_AUTH_TOKEN="argocd.token=$ARGOCD_AUTH_TOKEN"
+# To use $env in the template without being replaced by envsubst
+export env='$env'
 
 #  
 # Render the template as app-config.local.yaml that is ignored by git
