@@ -4,7 +4,7 @@ metadata:
   name: quarkus
   description: Supersonic Subatomic Java
   annotations:
-    backstage.io/source-location: url:https://github.com/quarkusio/quarkus
+    backstage.io/source-location: url:https://github.com/quarkusio/quarkus/
     github.com/project-slug: quarkusio/quarkus
   links:
     - url: 'https://github.com/qurkusio/quarkus'

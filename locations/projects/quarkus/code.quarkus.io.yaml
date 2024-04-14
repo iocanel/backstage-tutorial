@@ -4,7 +4,7 @@ metadata:
   name: code.quarkus.io
   description: A Quarkus Project Generator
   annotations:
-    backstage.io/source-location: url:https://github.com/quarkusio/code.quarkus.io
+    backstage.io/source-location: url:https://github.com/quarkusio/code.quarkus.io/
     backstage.io/provides-apis: 'code.quarkus.api'
   links:
     - url: 'https://github.com/qurkusio/code.quarkus.io'
