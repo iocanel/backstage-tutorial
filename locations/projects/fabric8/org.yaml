@@ -6,4 +6,5 @@ metadata:
 spec:
   type: team
   children: []
+  members: [User:iocanel]
 ---

@@ -15,7 +15,7 @@ metadata:
       title: 'Project Creator'
 spec:
   type: framework
-  owner: quarkus
+  owner: Group:quarkus
   lifecycle: experimental
   language: Java
   dependsOn:

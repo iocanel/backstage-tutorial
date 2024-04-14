@@ -6,7 +6,7 @@ metadata:
 spec:
   type: openapi # Could be 'openapi', 'graphql', 'grpc', etc.
   lifecycle: production
-  owner: quarkus
+  owner: Group:quarkus
   definition: |
      openapi: 3.0.3
      servers:

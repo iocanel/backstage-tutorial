@@ -11,7 +11,7 @@ metadata:
       title: 'GitHub Repo'
 spec:
   type: library
-  owner: fabric8
+  owner: Group:fabric8
   lifecycle: experimental
   language: Java
   dependsOn:

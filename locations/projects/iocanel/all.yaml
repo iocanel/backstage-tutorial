@@ -8,3 +8,4 @@ spec:
     - ./blog.yaml
     - ./presentations.yaml
     - ./iocanel.com.yaml
+    - ./hg2jj.yaml

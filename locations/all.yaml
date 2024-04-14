@@ -5,6 +5,7 @@ metadata:
   description: Root location
 spec:
   targets:
+    - ./org.yaml
     - ./slides/all.yaml
     - ./projects/all.yaml
-    - ./org.yaml
+    - ./templates/all.yaml

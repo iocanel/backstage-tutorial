@@ -13,7 +13,7 @@ metadata:
       title: 'Home Page'
 spec:
   type: service
-  owner: quarkus
+  owner: Group:quarkus
   lifecycle: experimental
   language: Java
   framework: Quarkus
