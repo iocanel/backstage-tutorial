@@ -66,6 +66,9 @@ import {
   EntityArgoCDOverviewCard,
   isArgocdAvailable
 } from '@roadiehq/backstage-plugin-argo-cd';
+import {
+    QuarkusPage,
+} from "@qshift/plugin-quarkus-console";
 
 const techdocsContent = (
   <EntityTechdocsContent>

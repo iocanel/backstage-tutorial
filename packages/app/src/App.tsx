@@ -42,6 +42,9 @@ import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/
 import { githubAuthApiRef } from '@backstage/core-plugin-api';
 import { PresentationsPage, PresentationPage } from '@iocanel/plugin-presentation';
 
+import { ScaffolderFieldExtensions } from '@backstage/plugin-scaffolder-react';
+import { QuarkusExtensionListField, QuarkusQuickstartPickerField, QuarkusVersionListField } from '@qshift/plugin-quarkus';
+
 const githubProvider: SignInProviderConfig = {
   id: 'github-auth-provider',
   title: 'GitHub',
@@ -92,7 +95,13 @@ const routes = (
         <ReportIssue />
       </TechDocsAddons>
     </Route>
-    <Route path="/create" element={<ScaffolderPage />} />
+    <Route path="/create" element={<ScaffolderPage />}>
+      <ScaffolderFieldExtensions>
+        <QuarkusExtensionListField />
+        <QuarkusQuickstartPickerField />
+        <QuarkusVersionListField />
+      </ScaffolderFieldExtensions>
+    </Route>
     <Route path="/api-docs" element={<ApiExplorerPage />} />
     <Route
       path="/tech-radar"
