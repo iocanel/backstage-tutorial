@@ -41,6 +41,7 @@ auth:
         signIn:
           resolvers:
             - resolver: usernameMatchingUserEntityName
+            - resolver: emailMatchingUserEntityProfileEmail
 scaffolder:
 
 catalog:
