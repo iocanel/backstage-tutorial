@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#
+# This patches the http service auth mechanism which causes auth related issues
+# /api/techdocs/cookie got 401
+# Fix: https://github.com/backstage/backstage/pull/23915
+
+cp patch/techdocs-cookie-404/* node_modules/@backstage/backend-app-api/
